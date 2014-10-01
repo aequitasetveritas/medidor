@@ -32,11 +32,11 @@ const struct t_parametros_esp parametros_esp_flash = {		// Estructuras para el g
 
 #pragma DATA_SECTION(constantes_esp_flash,".infoA")
 const struct t_constantes_esp constantes_esp_flash = {
-	defkV1,
-	defkI1,
-	defkI2,
-	defkE,
-	defCz,
+	_IQ16(defkV1),
+	_IQ16(defkI1),
+	_IQ16(defkI2),
+	_IQ16(defkE),
+	_IQ10(defCz),
 };
 
 struct t_parametros_esp parametros_esp;		// Estructuras para los parámetros en RAM
@@ -45,9 +45,9 @@ struct t_resultados_esp resultados_esp;
 
 unsigned int version_firmware = 0;				// Guarda la versión del firmware del ESP430
 unsigned int modo_ESP = modeIDLE;				// Modo de operación del ESP430
-double energia_total;							// Contador de energía total
-
-
+_iq15 energia_intermedia;					// Contador de energía intermedio en Ws, cuando supera los 0.01 kWh se vuelca en energia_total
+_iq10 energia_total;						// Contador de energía total en kWh, el punto fijo _iq10 da capacidad para acumular
+										// durante más de 20 años el consumo máximo en kWh con una resolución mayor a 0.001
 
 
 

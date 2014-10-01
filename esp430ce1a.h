@@ -2,6 +2,8 @@
 #define ESP430CE1A_H_
 
 #include <msp430.h>
+#include "IQmathLib.h"
+#include "QmathLib.h"
 #include "parametros.h"
 
 /***** Definición de tipos y constantes *****/
@@ -66,12 +68,12 @@ struct t_resultados_esp{
 	union t_u_long_word retNMBMEAS;
 };
 
-struct t_constantes_esp{
-	float kV1;
-	float kI1;
-	float kI2;
-	float kE;
-	float Cz;
+struct t_constantes_esp{		// Estructuras para las constantes del medidor en punto fijo de 32 bits
+	_iq16 kV1_PF32;
+	_iq16 kI1_PF32;
+	_iq16 kI2_PF32;
+	_iq16 kE_PF32;
+	_iq10 Cz_PF32;
 };
 
 

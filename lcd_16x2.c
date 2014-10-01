@@ -8,13 +8,13 @@
  *********************************************************************/
 
 void pulso_LCD (){				// 2000 ciclos de delay > 200 us
-	LCD_OUT &= ~LCD_PIN_EN;		// EN pasa a 0
+	LCD_OUT &= ~LCD_EN;		// EN pasa a 0
 	__delay_cycles(2000);
 
-	LCD_OUT |= LCD_PIN_EN;		// EN sube a 1
+	LCD_OUT |= LCD_EN;		// EN sube a 1
     __delay_cycles(2000);
 
-    LCD_OUT &= ~LCD_PIN_EN;		// EN vuelve a 0
+    LCD_OUT &= ~LCD_EN;		// EN vuelve a 0
     __delay_cycles(2000);
 }
 
@@ -36,7 +36,7 @@ void init_LCD (){
 	
 	__delay_cycles(1000000);		// Tiempo de espera para el encendido del LCD = 120 ms para f=8.388 MHz
 	
-	LCD_OUT |= LCD_PIN_D5;			// Puesto en modo de 4 bits
+	LCD_OUT |= LCD_D5;			// Puesto en modo de 4 bits
 	pulso_LCD();
 
     enviarbyte_LCD(0x28, FALSE);	// Segunda parte del byte de inicialización en modo 4 bits, 2 lineas y formato 5x7 puntos
@@ -71,7 +71,7 @@ void enviarbyte_LCD (char byteaenviar, int esdato){
 	LCD_OUT |= ((byteaenviar & 0xF0) >> 4);	// Setea el MSN en el puerto de salida
  
     if (esdato == TRUE){
-		LCD_OUT |= LCD_PIN_RS;
+		LCD_OUT |= LCD_RS;
 	}
 
 	pulso_LCD();	// Habilita la lectura del dato enviado
@@ -80,7 +80,7 @@ void enviarbyte_LCD (char byteaenviar, int esdato){
     LCD_OUT |= (byteaenviar & 0x0F);		// Setea el LSN en el puerto de salida
 
     if (esdato == TRUE){
-		LCD_OUT |= LCD_PIN_RS;
+		LCD_OUT |= LCD_RS;
 	}
 
     pulso_LCD();	// Habilita la lectura del dato enviado

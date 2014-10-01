@@ -7,7 +7,7 @@
 
 /***** Defines de los parárametros para los registros *****/
 
-#define defESP430_CTRL0 	/*I2CMRR | V1FILTER | NE1 | CURR_I2 | MB*/           V1FILTER | NE1 | CURR_I2 | MB
+#define defESP430_CTRL0 		/*I2CMRR | V1FILTER | NE1 | CURR_I2 | MB*/           V1FILTER | NE1 | CURR_I2 | MB
 #define defEVENT			ENRDYFG
 #define defPHASECORR1		0x0
 #define defPHASECORR2 		0x0
@@ -22,11 +22,11 @@
 #define defPOFFSET1_HI 		0x0
 #define defPOFFSET2_LO 		0x0
 #define defPOFFSET2_HI 		0x0
-#define defINTRPTLEVL_LO	0x8000
-#define defINTRPTLEVL_HI	0x0000
+#define defINTRPTLEVL_LO		0x8000
+#define defINTRPTLEVL_HI		0x0000
 #define defCALCYCLCNT 		50
 #define defSTARTCURR_FRAC	(defSTARTCURR & 0xFFFF)
-#define defSTARTCURR_INT	((defSTARTCURR & 0xFFFF0000) >> 16)
+#define defSTARTCURR_INT		((defSTARTCURR & 0xFFFF0000) >> 16)
 #define defNOMFREQ 			50
 #define defVDROPCYCLS 		5
 #define defRATIOTAMP 		(1.2 * POT_2_14)
@@ -41,12 +41,11 @@
 
 /***** Defines de las constantes del medidor *****/
 
-#define defkV1 	0.012213321
-#define defkI1 	0.002147948
-#define defkI2 	0.00217986
-#define defkE 	defkI1 * defkV1
-#define defCz	1 / defkE
-
+#define defkV1 	(float) 0.012213321
+#define defkI1 	(float) 0.002147948
+#define defkI2 	(float) 0.00217986
+#define defkE 		(defkI1 * defkV1)
+#define defCz		(1 / defkE)
 
 
 #endif /* PARAMETROS_H_ */

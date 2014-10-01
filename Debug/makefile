@@ -8,12 +8,12 @@ CG_TOOL_ROOT := D:/Programas/Code Composer Studio 6/ccsv6/tools/compiler/msp430_
 
 ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
-"./medidor.obj" \
-"./main.obj" \
-"./lcd_16x2.obj" \
-"./interrupciones.obj" \
-"./fll.obj" \
 "./esp430ce1a.obj" \
+"./fll.obj" \
+"./interrupciones.obj" \
+"./lcd_16x2.obj" \
+"./main.obj" \
+"./medidor.obj" \
 "../lnk_msp430fe427a.cmd" \
 -l"libc.a" \
 
@@ -113,32 +113,32 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-MedidorV1_FE427A.out \
+MedidorV2_FE427A.out \
 
 EXE_OUTPUTS__QUOTED += \
-"MedidorV1_FE427A.out" \
+"MedidorV2_FE427A.out" \
 
 BIN_OUTPUTS += \
-MedidorV1_FE427A.hex \
+MedidorV2_FE427A.txt \
 
 BIN_OUTPUTS__QUOTED += \
-"MedidorV1_FE427A.hex" \
+"MedidorV2_FE427A.txt" \
 
 
 # All Target
-all: MedidorV1_FE427A.out secondary-outputs
+all: MedidorV2_FE427A.out secondary-outputs
 
 # Tool invocations
-MedidorV1_FE427A.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+MedidorV2_FE427A.out: $(OBJS) $(CMD_SRCS) $(A_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MSP430 Linker'
-	"D:/Programas/Code Composer Studio 6/ccsv6/tools/compiler/msp430_4.3.1/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430FE427A__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"MedidorV1_FE427A.map" --heap_size=80 --stack_size=80 -i"D:/Programas/Code Composer Studio 6/ccsv6/ccs_base/msp430/include" -i"D:/Programas/Code Composer Studio 6/ccsv6/tools/compiler/msp430_4.3.1/lib" -i"D:/Programas/Code Composer Studio 6/ccsv6/tools/compiler/msp430_4.3.1/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="MedidorV1_FE427A_linkInfo.xml" --rom_model -o "MedidorV1_FE427A.out" $(ORDERED_OBJS)
+	"D:/Programas/Code Composer Studio 6/ccsv6/tools/compiler/msp430_4.3.1/bin/cl430" -vmsp --abi=eabi -O4 --advice:power=all -g --define=__MSP430FE427A__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"MedidorV2_FE427A.map" --heap_size=80 --stack_size=80 -i"D:/Programas/Code Composer Studio 6/ccsv6/ccs_base/msp430/include" -i"D:/Programas/Code Composer Studio 6/ccsv6/tools/compiler/msp430_4.3.1/lib" -i"D:/Programas/Code Composer Studio 6/ccsv6/tools/compiler/msp430_4.3.1/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="MedidorV2_FE427A_linkInfo.xml" --rom_model -o "MedidorV2_FE427A.out" $(ORDERED_OBJS) $(A_SRCS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-MedidorV1_FE427A.hex: $(EXE_OUTPUTS)
+MedidorV2_FE427A.txt: $(EXE_OUTPUTS)
 	@echo 'Invoking: MSP430 Hex Utility'
-	"D:/Programas/Code Composer Studio 6/ccsv6/tools/compiler/msp430_4.3.1/bin/hex430" --ti_txt -o "MedidorV1_FE427A.hex" $(EXE_OUTPUTS__QUOTED)
+	"D:/Programas/Code Composer Studio 6/ccsv6/tools/compiler/msp430_4.3.1/bin/hex430" --ti_txt -o "MedidorV2_FE427A.txt" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $@'
 	@echo ' '
 

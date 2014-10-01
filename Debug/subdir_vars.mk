@@ -6,6 +6,10 @@
 CMD_SRCS += \
 ../lnk_msp430fe427a.cmd 
 
+A_SRCS += \
+D:/Programas/MSP430ware/iqmathlib/libraries/CCS/MPYsoftware/IQmathLib.a \
+D:/Programas/MSP430ware/iqmathlib/libraries/CCS/MPYsoftware/QmathLib.a 
+
 C_SRCS += \
 ../esp430ce1a.c \
 ../fll.c \
@@ -45,6 +49,10 @@ OBJS__QUOTED += \
 "lcd_16x2.obj" \
 "main.obj" \
 "medidor.obj" 
+
+A_SRCS__QUOTED += \
+"D:/Programas/MSP430ware/iqmathlib/libraries/CCS/MPYsoftware/IQmathLib.a" \
+"D:/Programas/MSP430ware/iqmathlib/libraries/CCS/MPYsoftware/QmathLib.a" 
 
 C_SRCS__QUOTED += \
 "../esp430ce1a.c" \

@@ -1,1 +1,1 @@
-"./medidor.obj" "./main.obj" "./lcd_16x2.obj" "./interrupciones.obj" "./fll.obj" "./esp430ce1a.obj" "../lnk_msp430fe427a.cmd" -l"libc.a" 
+"./esp430ce1a.obj" "./fll.obj" "./interrupciones.obj" "./lcd_16x2.obj" "./main.obj" "./medidor.obj" "../lnk_msp430fe427a.cmd" -l"libc.a" 

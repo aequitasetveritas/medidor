@@ -3,8 +3,13 @@
 
 #include <msp430.h>
 #include <stdio.h>
+#include <string.h>
 #include "esp430ce1a.h"
+#include "lcd_16x2.h"
 
+/***** Defines del mapeo a los puertos y pines del MSP430 *****/
+
+#define LATCH_EN	BIT0
 
 /***** Definición de tipos y constantes *****/
 
@@ -20,8 +25,7 @@
 struct strings_salida{
 	char energia_activa[17];
 	char potencia_activa[17];
-	char potencia_reactiva[17];
-	char factor_de_potencia[17];
+	char factor_potencia[17];
 	char frecuencia[17];
 	char vrms[17];
 	char irms[17];
@@ -34,6 +38,8 @@ struct strings_salida{
 /***** Declaración de funciones *****/
 
 void crear_cadenas (void);
-
+void imprimirpantalla1(void);
+void imprimirpantalla2(void);
+void imprimirpantalla3(void);
 
 #endif /* MEDIDOR_H_ */
